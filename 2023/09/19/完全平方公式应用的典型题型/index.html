@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>完全平方公式应用的典型题型 | Mick随便写写</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/They3.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Mick随便写写</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>完全平方公式应用的典型题型</h1>
+    </header>
+
+    <section>
+      <h4 id="题型1：已知-x-pm-y-，以及-xy-的值，求-x-2-y-2-型"><a href="#题型1：已知-x-pm-y-，以及-xy-的值，求-x-2-y-2-型" class="headerlink" title="题型1：已知$ x \pm y$，以及$ xy $的值，求$ x^2 + y^2 $型"></a>题型1：已知$ x \pm y$，以及$ xy $的值，求$ x^2 + y^2 $型</h4><p>这种是最基本的变型，利用$ (x \pm y)^2 = x^2 \pm 2xy + y^2 $来解决问题。<br><strong>例：</strong><br>已知$x-y=7, xy=-3$，求$x^2 + y^2$的值。</p>
+<p><font color=red>留意到已知的是$x-y$的值，所以，把$x^2+y^2$变型成$(x-y)^2$的形式</font><br>$x^2+y^2=x^2+y^2-2xy+2xy=(x-y)^2+2xy=7^2+2(-3)=43$</p>
+<hr>
+<h4 id="题型2：已知-x-2-y-2-，求-xy-型"><a href="#题型2：已知-x-2-y-2-，求-xy-型" class="headerlink" title="题型2：已知$ x^2+y^2$，求$ xy $型"></a>题型2：已知$ x^2+y^2$，求$ xy $型</h4><p>这种题型，通常$x+y$或$x-y$能凑出整数（即未知数会被消掉），因此，根据$x+y$还是$x-y$能消掉未知数来决定怎么凑完全平方公式<br><strong>例：</strong><br>已知$(n-2010)^2+(2012-n)^2=1$，求$(2012-n)(n-2010)$的值。</p>
+<p><font color=red>留意到已知的是$(n-2010)+(2012-n)=2012-2010=2$所以，把$x^2+y^2$型已知条件变型成$(x+y)^2$的形式</font><br>$(n-2010)^2+(2012-n)^2=1\\<br>\Rightarrow (n-2010)^2+(2012-n)^2+2(2012-n)(n-2010)-2(2012-n)(n-2010)=1\\<br>\Rightarrow [(n-2010)+(2012-n)]^2-2(2012-n)(n-2010)=1\\<br>\Rightarrow 2^2-2(2012-n)(n-2010)=1\\<br>\Rightarrow (2012-n)(n-2010)=\dfrac{3}{2}<br>$</p>
+<hr>
+<h4 id="题型3：已知-x-dfrac-1-x-，求-x-2-dfrac-1-x-2-型"><a href="#题型3：已知-x-dfrac-1-x-，求-x-2-dfrac-1-x-2-型" class="headerlink" title="题型3：已知$ x+\dfrac{1}{x}$，求$ x^2+\dfrac{1}{x^2} $型"></a>题型3：已知$ x+\dfrac{1}{x}$，求$ x^2+\dfrac{1}{x^2} $型</h4><p>这种题型，通常$(x+\dfrac{1}{x})^2$中间项会因为约分而消掉，因此，仍然是凑$(x+\dfrac{1}{x})^2$完全平方公式来解决。<br><strong>例：</strong><br>已知$x^2+3x+1=0$，求$(x-\dfrac{1}{x})^2$的值。</p>
+<p><font color=red>留意到已知的是$x^2+3x+1=0\Rightarrow\dfrac{x^2+3x+1}{x}=0$，把$x^2+ax+1$型已知条件变型成$x+\dfrac{1}{x}$的形式</font><br>$ x^2+3x+1=0\\<br>\Rightarrow x+3+\frac{1}{x}=0 \\<br>\Rightarrow x+\frac{1}{x}=-3\\<br>\Rightarrow x+\frac{1}{x}-2=-3-2=-5 \\<br>\Rightarrow (x-\frac{1}{x})^2=-5<br>$</p>
+<hr>
+<h4 id="题型4：求-ax-2-bx-c-型代数式的最大值（或最小值）"><a href="#题型4：求-ax-2-bx-c-型代数式的最大值（或最小值）" class="headerlink" title="题型4：求$ ax^2+bx+c $型代数式的最大值（或最小值）"></a>题型4：求$ ax^2+bx+c $型代数式的最大值（或最小值）</h4><p>这种题型，通常把$ax^2+bx+c$凑成完全平方公式来解决。<br><strong>例：</strong><br>求代数式$x^2-2x-1$的最小值。</p>
+<p><font color=red>型如$x^2+ax$的代数式，要配成完全平方形式，就是把中间项的$a$处理好，而如果是$ax^2+bx$形式，则先要把2次项系数归1，变为$a(x^2+\dfrac{b}{a}x)$来处理。\\<br>$x^2+ax=x^2+ax+(\frac{a}{2})^2-(\frac{a}{2})^2=(x+\frac{a}{2})^2-(\frac{a}{2})^2$\\<br>$ax^2+bx=a(x^2+\frac{b}{a}x)=a[x^2+\frac{b}{a}x+(\frac{b}{2a})^2-(\frac{b}{2a})^2]=a[(x+\frac{b}{2a})^2-\frac{b}{2a})^2]$
+</font><br>$ x^2-2x-1\\<br>=x^2-2x+1-1-1\\<br>=(x-1)^2-2<br>(x-1)^2 \ge 0 \Rightarrow (x-1)^2-2 \ge -2<br>$</p>
+<hr>
+<h1 id="TO-BE-CONTINUED"><a href="#TO-BE-CONTINUED" class="headerlink" title="TO BE CONTINUED"></a>TO BE CONTINUED</h1>
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2023-09-19T19:56:05.000Z" itemprop="datePublished">
+              2023-09-20
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/%E5%88%9D%E4%B8%AD%E6%95%B0%E5%AD%A6/">初中数学</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2023 - Mick Huang </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
