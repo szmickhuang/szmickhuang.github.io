@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mick随便写写</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/They3.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Mick随便写写</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <ul class="Index">
+  
+    <header class='PageTitle'>
+        <h1>{ Maths }</h1>
+    </header>
+  
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2023/09/27/%E9%87%8D%E6%8E%92%E9%97%AE%E9%A2%98%E7%9A%84%E6%8E%A8%E5%AF%BC/">重排问题的推导</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2023-09-27T23:36:21.000Z" itemprop="datePublished">
+    2023-09-28
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/Maths/">Maths</a> }
+  </li>
+
+
+  </ul>
+  
+  
+</div>
+
+    </header>
+    <div>
+      
+        <h5 id="问题：有一个4位数1234，如果要把这四位重新排列，要求每一位都不能排在原来的位置上，共有几种排法？如果5位、6位……n位呢？"><a href="#问题：有一个4位数1234，如果要把这四位重新排列，要求每一位都不能排在原来的位置上，共有几种排法？如果5位、6位……n位呢？" class="headerlink" title="问题：有一个4位数1234，如果要把这四位重新排列，要求每一位都不能排在原来的位置上，共有几种排法？如果5位、6位……n位呢？"></a>问题：有一个4位数1234，如果要把这四位重新排列，要求每一位都不能排在原来的位置上，共有几种排法？如果5位、6位……n位呢？</h5><ol>
+<li>首先我们假设问题解$solution(n)$对应的是有$n$位数重排。</li>
+<li>很明显用枚举的方式就可以把前3个重排轻易得出结论：<br>$<br>solution(1) = 0 \\<br>solution(2) = 1 \\<br>solution(3) = 2<br>$</li>
+<li>当要求$solution(4)$时，我们可以考虑一个策略：先把“1”确定位置，再把其他的数按要求放入合适的位置。<br>因为“1”放在2号位还是3号位、4号位，本质上都是一样的，所以，先按把“1”放在2号位来分析，最后的结果$\times 3$即可。<br>“1”放入2号位后，“2”面临两个选择：<br><strong>放入1号位</strong>：<br>放入1号位后，也就是1号位、2号位已经确定了，剩下的是解决“3”、“4”两个数字重排的问题，重排排法有$solution(2)$种。<br><strong>不放入1号位</strong>：<br>不放入1号位，则意味着等价于“2”、“3”、“4”这三个数字重排的问题，重排排法有$solution(3)$种。<br>因此，针对把“1”号放在2号位，共有$solution(3)+solution(2)=3$种排法。而把“1”号放入3号位或4号位，与放在2号位的情况是一样的，都有3种排法。所以$solution(4)=3 \times [solution(3)+solution(2)]=3 \times 3=9$种。</li>
+<li>推广到$n$位重排的情况<br>同样，把“1”放入2号位后，“2”也一样面临放入1号位还是不放入1号位两种情况：<br><strong>放入1号位</strong>：剩下的“3”、“4”、……、“n”面临的是$solution(n-2)$的问题。<br><strong>不放入1号位</strong>：则“2”、“3”、“4”、……、“n”面临的是$solution(n-1)$的问题。<br>依次推理“1”放入3号位、4号位……也是同样的结论。<br>所以：<br>$solution(n)= (n-1)\cdot [solution(n-1)+solution(n-2)]$<br>典型的：<br>$solution(5)=4 \times (9+2)= 44 $</li>
+</ol>
+
+      
+    </div>
+</article>
+
+    </li>
+  
+</ul>
+
+
+
+            <footer>
+    <div>© 2023 - Mick Huang </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
