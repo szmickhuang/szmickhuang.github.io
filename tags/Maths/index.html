@@ -58,6 +58,51 @@
     <header class="title">
       
         <h1>
+          <a href="/2023/10/09/%E4%B8%80%E4%B8%AA%E7%BB%84%E5%90%88%E5%85%AC%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/">一个组合公式的应用实例</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2023-10-09T16:00:00.000Z" itemprop="datePublished">
+    2023-10-10
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/Maths/">Maths</a> }
+  </li>
+
+
+  </ul>
+  
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>有这么一个组合公式：</p>
+<script type="math/tex; mode=display">\dbinom{n}{l}\dbinom{l}{r}=\dbinom{n}{r}\dbinom{n-r}{l-r}</script><p>乍一看，好像很复杂的样子，实际上，我们可以用一个例子很轻松的理解：</p>
+<p>有那么一个班，全班有 $n$ 位同学，为了对班级有效管理，班主任决定选取 $l$ 位同学作为班干部，在这些班干部中，还要选取 $r$ 位同学作为核心班委。</p>
+<hr>
+<p>第一个思路，按着题目的选取顺序来：<br>因此，选取班干部的方案有 $\dbinom{n}{l}$ 种。<br>从 $l$ 位班干部中再选取 $r$ 位同学作为核心班委的方案有 $\dbinom{l}{r}$ 种。<br>所以，根据乘法原理，整个班管理架构的选取方案有 $\dbinom{n}{l}\dbinom{l}{r}$ 种。</p>
+<hr>
+<p>我们再换一个思路：<br>因为整个班管理架构最终的目的是选取 $r$ 位同学作为核心班委， $l$ 位同学作为班干部，且核心班委在班干部集体中。<br>因此，我们可以先选取核心班委，方案有 $\dbinom{n}{r}$ 种。<br>再从剩余的同学中，选取其他班干部，方案有 $\dbinom{n-r}{l-r}$ 种。<br>根据乘法原理，整个班的管理架构的选取方案有 $\dbinom{n}{r}\dbinom{n-r}{l-r}$</p>
+<hr>
+<p>这两种思路应该是等价的，所以：<script type="math/tex">\dbinom{n}{l}\dbinom{l}{r}=\dbinom{n}{r}\dbinom{n-r}{l-r}</script></p>
+
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
           <a href="/2023/10/05/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">组合数学学习笔记</a>
         </h1>
       

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>一个组合公式的应用实例 | Mick随便写写</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/They3.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Mick随便写写</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>一个组合公式的应用实例</h1>
+    </header>
+
+    <section>
+      <p>有这么一个组合公式：</p>
+<script type="math/tex; mode=display">\dbinom{n}{l}\dbinom{l}{r}=\dbinom{n}{r}\dbinom{n-r}{l-r}</script><p>乍一看，好像很复杂的样子，实际上，我们可以用一个例子很轻松的理解：</p>
+<p>有那么一个班，全班有 $n$ 位同学，为了对班级有效管理，班主任决定选取 $l$ 位同学作为班干部，在这些班干部中，还要选取 $r$ 位同学作为核心班委。</p>
+<hr>
+<p>第一个思路，按着题目的选取顺序来：<br>因此，选取班干部的方案有 $\dbinom{n}{l}$ 种。<br>从 $l$ 位班干部中再选取 $r$ 位同学作为核心班委的方案有 $\dbinom{l}{r}$ 种。<br>所以，根据乘法原理，整个班管理架构的选取方案有 $\dbinom{n}{l}\dbinom{l}{r}$ 种。</p>
+<hr>
+<p>我们再换一个思路：<br>因为整个班管理架构最终的目的是选取 $r$ 位同学作为核心班委， $l$ 位同学作为班干部，且核心班委在班干部集体中。<br>因此，我们可以先选取核心班委，方案有 $\dbinom{n}{r}$ 种。<br>再从剩余的同学中，选取其他班干部，方案有 $\dbinom{n-r}{l-r}$ 种。<br>根据乘法原理，整个班的管理架构的选取方案有 $\dbinom{n}{r}\dbinom{n-r}{l-r}$</p>
+<hr>
+<p>这两种思路应该是等价的，所以：<script type="math/tex">\dbinom{n}{l}\dbinom{l}{r}=\dbinom{n}{r}\dbinom{n-r}{l-r}</script></p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2023-10-09T16:00:00.000Z" itemprop="datePublished">
+              2023-10-10
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/Maths/">Maths</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2023 - Mick Huang </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
