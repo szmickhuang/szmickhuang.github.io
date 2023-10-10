@@ -86,8 +86,8 @@
 <hr>
 <p>我们再换一个思路：<br>因为整个班管理架构最终的目的是选取 $r$ 位同学作为核心班委， $l$ 位同学作为班干部，且核心班委在班干部集体中。<br>因此，我们可以先选取核心班委，方案有 $\dbinom{n}{r}$ 种。<br>再从剩余的同学中，选取其他班干部，方案有 $\dbinom{n-r}{l-r}$ 种。<br>根据乘法原理，整个班的管理架构的选取方案有 $\dbinom{n}{r}\dbinom{n-r}{l-r}$</p>
 <hr>
-<p>这两种思路应该是等价的，所以：<script type="math/tex">\dbinom{n}{l}\dbinom{l}{r}=\dbinom{n}{r}\dbinom{n-r}{l-r}</script></p>
-
+<p>这两种思路应该是等价的，所以：</p>
+<script type="math/tex; mode=display">\dbinom{n}{l}\dbinom{l}{r}=\dbinom{n}{r}\dbinom{n-r}{l-r}</script>
       
     </div>
 </article>
