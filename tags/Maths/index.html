@@ -86,10 +86,10 @@
 <script type="math/tex; mode=display">(a+b)^n=a^n+\dbinom{n}{1}a^{n-1}b+\dots+\dbinom{n}{n-1}ab^{n-1}+b^n</script><p>第 $r$ 项系数 $(0 \le r \le n)$ ：$\dbinom{n}{r}$ <font color=red>这里第0项是 $\dbinom{n}{0}a^nb^0=a^n$</font></p>
 <p>那么，这个系数是怎么来的呢？<br>实际上，对于第 $r$ 项，就是这么 $n$ 项里，取了其中 $r$ 项来构成 $a$ 的系数，再取了剩下的项，来构成 $b$ 的系数，实际上系数是： </p>
 <script type="math/tex; mode=display">\dbinom{n}{r}b^{r}\dbinom{n-r}{n-r}a^{n-r}</script><hr>
-<p>推广到三项式：<br>对于 $(a+b+c)^n$ ，$a^ib^jc^k$的系数（ $i+j+k=n$ ）是：$\dbinom{n}{i}\dbinom{n-i}{j}\dbinom{n-i-j}{k}=\dfrac{n!}{i!j!k!}$</p>
-<hr>
-<p>推广到n项式：<br>对于 $(x_1+x_2+\dots+x_n)^m$ ，$x_1^{y_1}x_2^{y_2}\dots x_n^{y_n}$的系数（ $y_1+y_2+\dots+y_n=m$ ）是：$\dfrac{m!}{y_1!y_2!\dots y_n!}$</p>
-
+<p>推广到三项式：<br>对于 $(a+b+c)^n$ ，$a^ib^jc^k$的系数（ $i+j+k=n$ ）是：</p>
+<script type="math/tex; mode=display">\dbinom{n}{i}\dbinom{n-i}{j}\dbinom{n-i-j}{k}=\dfrac{n!}{i!j!k!}</script><hr>
+<p>推广到n项式：<br>对于 $(x_1+x_2+\dots+x_n)^m$ ，$x_1^{y_1}x_2^{y_2}\dots x_n^{y_n}$的系数（ $y_1+y_2+\dots+y_n=m$ ）是：</p>
+<script type="math/tex; mode=display">\dfrac{m!}{y_1!y_2!\dots y_n!}</script>
       
     </div>
 </article>
