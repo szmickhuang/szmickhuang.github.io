@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>从二项式定理到多项式定理 | Mick随便写写</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/They3.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Mick随便写写</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>从二项式定理到多项式定理</h1>
+    </header>
+
+    <section>
+      <p>二项式定理：</p>
+<script type="math/tex; mode=display">(a+b)^n=a^n+\dbinom{n}{1}a^{n-1}b+\dots+\dbinom{n}{n-1}ab^{n-1}+b^n</script><p>第 $r$ 项系数 $(0 \le r \le n)$ ：$\dbinom{n}{r}$ <font color=red>这里第0项是 $\dbinom{n}{0}a^nb^0=a^n$</font></p>
+<p>那么，这个系数是怎么来的呢？<br>实际上，对于第 $r$ 项，就是这么 $n$ 项里，取了其中 $r$ 项来构成 $a$ 的系数，再取了剩下的项，来构成 $b$ 的系数，实际上系数是： </p>
+<script type="math/tex; mode=display">\dbinom{n}{r}b^{r}\dbinom{n-r}{n-r}a^{n-r}</script><hr>
+<p>推广到三项式：<br>对于 $(a+b+c)^n$ ，$a^ib^jc^k$的系数（ $i+j+k=n$ ）是：$\dbinom{n}{i}\dbinom{n-i}{j}\dbinom{n-i-j}{k}=\dfrac{n!}{i!j!k!}$</p>
+<hr>
+<p>推广到n项式：<br>对于 $(x_1+x_2+\dots+x_n)^m$ ，$x_1^{y_1}x_2^{y_2}\dots x_n^{y_n}$的系数（ $y_1+y_2+\dots+y_n=m$ ）是：$\dfrac{m!}{y_1!y_2!\dots y_n!}$</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2023-10-10T00:26:12.000Z" itemprop="datePublished">
+              2023-10-10
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/Maths/">Maths</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2023 - Mick Huang </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
