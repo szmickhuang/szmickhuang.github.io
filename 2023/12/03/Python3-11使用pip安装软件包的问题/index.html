@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Python3.11使用pip安装软件包的问题 | Mick随便写写</title>
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/They3.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Mick随便写写</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>Python3.11使用pip安装软件包的问题</h1>
+    </header>
+
+    <section>
+      <p>最近升级了debian 12，发现一个问题：debian 12配备的python是python3.11，打算升级akshare软件包，发现一个问题：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">mick@DESKTOP-JO6G0UK:~$ python3 -m pip install akshare</span><br><span class="line">error: externally-managed-environment</span><br><span class="line"></span><br><span class="line">× This environment is externally managed</span><br><span class="line">╰─&gt; To install Python packages system-wide, try apt install</span><br><span class="line">    python3-xyz, <span class="built_in">where</span> xyz is the package you are trying to</span><br><span class="line">    install.</span><br><span class="line"></span><br><span class="line">    If you wish to install a non-Debian-packaged Python package,</span><br><span class="line">    create a virtual environment using python3 -m venv path/to/venv.</span><br><span class="line">    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make</span><br><span class="line">    sure you have python3-full installed.</span><br><span class="line"></span><br><span class="line">    If you wish to install a non-Debian packaged Python application,</span><br><span class="line">    it may be easiest to use pipx install xyz, <span class="built_in">which</span> will manage a</span><br><span class="line">    virtual environment <span class="keyword">for</span> you. Make sure you have pipx installed.</span><br><span class="line"></span><br><span class="line">    See /usr/share/doc/python3.11/README.venv <span class="keyword">for</span> more information.</span><br><span class="line"></span><br><span class="line">note: If you believe this is a mistake, please contact your Python installation </span><br><span class="line">or OS distribution provider. You can override this, at the risk of breaking your </span><br><span class="line">Python installation or OS, by passing --break-system-packages.</span><br><span class="line">hint: See PEP 668 <span class="keyword">for</span> the detailed specification.</span><br><span class="line">mick@DESKTOP-JO6G0UK:~$</span><br></pre></td></tr></table></figure></p>
+<p>究其原因，是因为debian 12为了避免「操作系统包管理器 apt和 pip 等特定于 Python 的包管理工具之间的冲突」。</p>
+<p>这些冲突包括 Python 级 API 不兼容和文件所有权冲突。</p>
+<p>解决此问题，有几个方法，这里忽略掉强制取消警告以及pipx的方法，记录一下使用venv的解决方案。</p>
+<h4 id="安装venv"><a href="#安装venv" class="headerlink" title="安装venv"></a>安装venv</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-venv</span><br></pre></td></tr></table></figure>
+<h4 id="生成一个python虚拟环境"><a href="#生成一个python虚拟环境" class="headerlink" title="生成一个python虚拟环境"></a>生成一个python虚拟环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.env &amp;&amp; python3 -m venv <span class="variable">$HOME</span>/.env/&lt;project_name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="安装模块，如-akshare"><a href="#安装模块，如-akshare" class="headerlink" title="安装模块，如 akshare"></a>安装模块，如 akshare</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$HOME</span>/.env/&lt;project_name&gt;/bin/python -m pip install --upgrade pip</span><br><span class="line"><span class="variable">$HOME</span>/.env/&lt;project_name&gt;/bin/python -m pip install akshare</span><br></pre></td></tr></table></figure>
+<h4 id="用新的虚拟环境执行py文件"><a href="#用新的虚拟环境执行py文件" class="headerlink" title="用新的虚拟环境执行py文件"></a>用新的虚拟环境执行py文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="variable">$HOME</span>/.env/&lt;project_name&gt;/bin/activate</span><br><span class="line"><span class="variable">$HOME</span>/.env/&lt;project_name&gt;/bin/python ./demo.py</span><br></pre></td></tr></table></figure>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2023-12-03T22:29:48.000Z" itemprop="datePublished">
+              2023-12-04
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/linux/">linux</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2023 - Mick Huang </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
