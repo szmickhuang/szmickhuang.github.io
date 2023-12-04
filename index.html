@@ -54,6 +54,46 @@
     <header class="title">
       
         <h1>
+          <a href="/2023/12/04/%E6%80%8E%E6%A0%B7%E7%A1%AE%E8%AE%A4%E7%B3%BB%E7%BB%9F%E6%94%AF%E6%8C%81CPP%E7%89%88%E6%9C%AC%E6%83%85%E5%86%B5/">怎样确认系统支持C++版本情况</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2023-12-04T05:05:11.000Z" itemprop="datePublished">
+    2023-12-04
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/linux/">linux</a> }
+  </li>
+
+
+  </ul>
+  
+  
+</div>
+
+    </header>
+    <div>
+      
+        <h2 id="在linux里"><a href="#在linux里" class="headerlink" title="在linux里"></a>在linux里</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -std=c++2a -E - &lt; /dev/null</span><br></pre></td></tr></table></figure>
+<p>上面的参数 c++2a 是指 c++20 标准。<br>其他的可以选 c++17 / c++11</p>
+<h2 id="编写一段c-代码"><a href="#编写一段c-代码" class="headerlink" title="编写一段c++代码"></a>编写一段c++代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;读取 “__cplusplus” 标志来判断编译器可支持的C++标准&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; __cplusplus &lt;&lt; endl;</span><br><span class="line"><span class="meta">#<span class="keyword">if</span> __cplusplus == 201402L</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;C++14&quot;</span> &lt;&lt; endl;</span><br><span class="line"><span class="meta">#<span class="keyword">elif</span> __cplusplus == 201103L</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;C++11&quot;</span> &lt;&lt; endl;</span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;c/c++&quot;</span> &lt;&lt; endl;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>读取 <strong>cplusplus 标志来确认：<br>cppreference has information on the standard values of the </strong>cplusplus macro in the section “Predefined macros.” Currently the standard values are:<br>199711L (C++98 or C++03)<br>201103L (C++11)<br>201402L (C++14)<br>201703L (C++17)<br>202002L (C++20)</p>
+
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
           <a href="/2023/12/03/Python3-11%E4%BD%BF%E7%94%A8pip%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/">Python3.11使用pip安装软件包的问题</a>
         </h1>
       
