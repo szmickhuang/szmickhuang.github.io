@@ -54,6 +54,43 @@
     <header class="title">
       
         <h1>
+          <a href="/2023/12/04/update-pip-source-to-tsinghua/">update pip source to tsinghua</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2023-12-04T18:21:59.000Z" itemprop="datePublished">
+    2023-12-05
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/linux/">linux</a> }
+  </li>
+
+
+  </ul>
+  
+  
+</div>
+
+    </header>
+    <div>
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip config <span class="built_in">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
           <a href="/2023/12/04/%E6%80%8E%E6%A0%B7%E7%A1%AE%E8%AE%A4%E7%B3%BB%E7%BB%9F%E6%94%AF%E6%8C%81CPP%E7%89%88%E6%9C%AC%E6%83%85%E5%86%B5/">怎样确认系统支持C++版本情况</a>
         </h1>
       
@@ -470,65 +507,13 @@
 
     </li>
   
-    <li>
-      <article class='ListView'>
-    <header class="title">
-      
-        <h1>
-          <a href="/2023/09/19/%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E8%87%AA%E5%88%B6%E4%B8%80%E4%B8%AAhexo-docker/">在云服务器上自制一个hexo docker</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2023-09-19T00:56:57.000Z" itemprop="datePublished">
-    2023-09-19
-  </time>
-  
-  | 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/tags/docker/">docker</a> }
-  </li>
-
-
-  </ul>
-  
-  
-</div>
-
-    </header>
-    <div>
-      
-        <h3 id="build-and-set-origin-docker-container"><a href="#build-and-set-origin-docker-container" class="headerlink" title="build and set origin docker container"></a>build and set origin docker container</h3><h4 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h4><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> alpine:latest AS build-<span class="keyword">env</span></span><br><span class="line"><span class="comment"># # 把git装上</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apk add --no-cache git</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apk add --no-cache openssh-server</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apk add --no-cache openssh</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;http://mirrors.aliyun.com/alpine/edge/main/&quot;</span> &gt; /etc/apk/repositories \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;http://mirrors.aliyun.com/alpine/edge/community/&quot;</span> &gt;&gt; /etc/apk/repositories \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apk update \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apk add --no-cache --update nodejs npm \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; node -v &amp;&amp; npm -v \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm install hexo-cli -g</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /usr/src/hexo-blog</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /usr/src/hexo-blog</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装hexo-mathjax插件</span></span><br><span class="line"><span class="comment"># RUN npm install hexo-renderer-mathjax --save</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 把Hexo的渲染引擎，从默认的hexo-renderer-marked替换为hexo-renderer-kramed</span></span><br><span class="line"><span class="comment"># RUN npm uninstall hexo-renderer-marked --save</span></span><br><span class="line"><span class="comment"># RUN npm install hexo-renderer-kramed --save</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">4000</span></span><br></pre></td></tr></table></figure>
-<h4 id="build-docker-image"><a href="#build-docker-image" class="headerlink" title="build docker image"></a>build docker image</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t hexoblogserver .</span><br></pre></td></tr></table></figure>
-<h4 id="run-docker-container-background"><a href="#run-docker-container-background" class="headerlink" title="run docker container background"></a>run docker container background</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -d -p 13579:4000 -v .:/usr/src/hexo-blog --name hexoblogbackend hexoblogserver</span><br></pre></td></tr></table></figure>
-<h4 id="login-docker-container"><a href="#login-docker-container" class="headerlink" title="login docker container"></a>login docker container</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it hexoblogbackend /bin/sh</span><br></pre></td></tr></table></figure>
-<h4 id="in-docker-container-shell-remove-dockerfile-created-before"><a href="#in-docker-container-shell-remove-dockerfile-created-before" class="headerlink" title="in docker container shell, remove dockerfile created before"></a>in docker container shell, remove dockerfile created before</h4><p>因为已挂载了宿主系统的hexoserver目录在docker container的/usr/src/hexo-blog中，这两个目录里的文件是共同的，宿主系统原来的dockerfile文件也出现在这里，所以hexo init会不成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> dockerfile</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
-<h4 id="至此，docker版的hexo后端（含服务器）已OK，下一步是要解决theme和latex公式问题。"><a href="#至此，docker版的hexo后端（含服务器）已OK，下一步是要解决theme和latex公式问题。" class="headerlink" title="至此，docker版的hexo后端（含服务器）已OK，下一步是要解决theme和latex公式问题。"></a>至此，docker版的hexo后端（含服务器）已OK，下一步是要解决theme和latex公式问题。</h4><hr>
-<h3 id="解决deploy到github上的问题"><a href="#解决deploy到github上的问题" class="headerlink" title="解决deploy到github上的问题"></a>解决deploy到github上的问题</h3><h4 id="用ssh-keygen生成公钥和私钥，default放在-ssh文件夹中"><a href="#用ssh-keygen生成公钥和私钥，default放在-ssh文件夹中" class="headerlink" title="用ssh-keygen生成公钥和私钥，default放在~/.ssh文件夹中"></a>用ssh-keygen生成公钥和私钥，default放在~/.ssh文件夹中</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;xxx@xxx.com&quot;</span></span><br></pre></td></tr></table></figure>
-<h4 id="生成两个文件：id-rsa和id-rsa-pub"><a href="#生成两个文件：id-rsa和id-rsa-pub" class="headerlink" title="生成两个文件：id_rsa和id_rsa.pub"></a>生成两个文件：id_rsa和id_rsa.pub</h4><h4 id="把id-rsa-pub（即公钥文件）放上github-com"><a href="#把id-rsa-pub（即公钥文件）放上github-com" class="headerlink" title="把id_rsa.pub（即公钥文件）放上github.com"></a>把id_rsa.pub（即公钥文件）放上github.com</h4><p>“settings-&gt;SSH and GPG keys-&gt;SSH keys-&gt;New SSH key”，把id_rsa.pub文件的内容copy进去即可。title不重要，可填可不填。</p>
-<h4 id="设置好密钥后，测试一下是否设置正确"><a href="#设置好密钥后，测试一下是否设置正确" class="headerlink" title="设置好密钥后，测试一下是否设置正确"></a>设置好密钥后，测试一下是否设置正确</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Warning: Permanently added <span class="string">&#x27;github.com&#x27;</span> (ED25519) to the list of known hosts.</span><br><span class="line">PTY allocation request failed on channel 0</span><br><span class="line">Hi xxxxxx! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br><span class="line"><span class="string">Connection to github.com closed.</span></span><br></pre></td></tr></table></figure>
-<h4 id="修改-config-yml的deploy段"><a href="#修改-config-yml的deploy段" class="headerlink" title="修改_config.yml的deploy段"></a>修改_config.yml的deploy段</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xxxxx/xxxxx.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<h4 id="安装deploy插件"><a href="#安装deploy插件" class="headerlink" title="安装deploy插件"></a>安装deploy插件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h4 id="set-git-user-name-and-user-email"><a href="#set-git-user-name-and-user-email" class="headerlink" title="set git user.name and user.email"></a>set git user.name and user.email</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;&lt;user name in github.com&gt;&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&lt;email in github.com&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-<h4 id="测试deploy是否成功"><a href="#测试deploy是否成功" class="headerlink" title="测试deploy是否成功"></a>测试deploy是否成功</h4><h2 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></h2><h3 id="install-icalm-theme"><a href="#install-icalm-theme" class="headerlink" title="install icalm theme"></a>install icalm theme</h3><h5 id="install-from-github-by-git"><a href="#install-from-github-by-git" class="headerlink" title="install from github by git"></a>install from github by git</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/nameoverflow/hexo-theme-icalm.git themes/hexo-theme-icalm</span><br><span class="line"><span class="built_in">cd</span> themes/hexo-theme-icalm/</span><br><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
-<p>update:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &amp;&amp; git submodule update --remote</span><br></pre></td></tr></table></figure></p>
-<h5 id="edit-config-yml-in-hexo-root-folder"><a href="#edit-config-yml-in-hexo-root-folder" class="headerlink" title="edit _config.yml in hexo_root folder"></a>edit _config.yml in hexo_root folder</h5><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="comment">## theme: landscape</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">hexo-theme-icalm</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
-<h5 id="edit-config-yml-in-theme-folder-to-specify-picture-for-sidebar"><a href="#edit-config-yml-in-theme-folder-to-specify-picture-for-sidebar" class="headerlink" title="edit _config.yml in theme folder to specify picture for sidebar"></a>edit _config.yml in theme folder to specify picture for sidebar</h5><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="comment"># Pictures shown on the sidebar</span></span><br><span class="line"><span class="comment"># Use the absolute URL after generating</span></span><br><span class="line"><span class="comment"># avatar: /assets/tree_small.png</span></span><br><span class="line"><span class="attr">avatar:</span> <span class="string">/assets/They3.jpg</span></span><br><span class="line"><span class="comment"># sidebar_background: /assets/header.png</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure></h2><h3 id="处理latex数学公式渲染问题"><a href="#处理latex数学公式渲染问题" class="headerlink" title="处理latex数学公式渲染问题"></a>处理latex数学公式渲染问题</h3><h4 id="重复一遍卸载-hexo-renderer-marked-和安装-hexo-renderer-kramed-的操作"><a href="#重复一遍卸载-hexo-renderer-marked-和安装-hexo-renderer-kramed-的操作" class="headerlink" title="重复一遍卸载 hexo-renderer-marked 和安装 hexo-renderer-kramed 的操作"></a>重复一遍卸载 hexo-renderer-marked 和安装 hexo-renderer-kramed 的操作</h4><p>我也不知道为什么，不这么做找不到下一步。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure></p>
-<h4 id="修改-node-modules-hexo-renderer-kramed-lib-renderer-js，formatText函数更改成如下："><a href="#修改-node-modules-hexo-renderer-kramed-lib-renderer-js，formatText函数更改成如下：" class="headerlink" title="修改 node_modules/hexo-renderer-kramed/lib/renderer.js，formatText函数更改成如下："></a>修改 node_modules/hexo-renderer-kramed/lib/renderer.js，formatText函数更改成如下：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">formatText</span>(<span class="params">text</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="同样的，重复一遍卸载-hexo-math-和重新安装-hexo-renderer-mathjax-的过程"><a href="#同样的，重复一遍卸载-hexo-math-和重新安装-hexo-renderer-mathjax-的过程" class="headerlink" title="同样的，重复一遍卸载 hexo-math 和重新安装 hexo-renderer-mathjax 的过程"></a>同样的，重复一遍卸载 hexo-math 和重新安装 hexo-renderer-mathjax 的过程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-math --save</span><br><span class="line">npm install hexo-renderer-mathjax --save</span><br></pre></td></tr></table></figure>
-<h4 id="更改-node-modules-hexo-renderer-mathjax-mathjax-html-的script-src段为如下："><a href="#更改-node-modules-hexo-renderer-mathjax-mathjax-html-的script-src段为如下：" class="headerlink" title="更改 node_modules/hexo-renderer-mathjax/mathjax.html 的script src段为如下："></a>更改 node_modules/hexo-renderer-mathjax/mathjax.html 的script src段为如下：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="更改默认转义规则"><a href="#更改默认转义规则" class="headerlink" title="更改默认转义规则"></a>更改默认转义规则</h4><p>修改 node_modules\kramed\lib\rules\inline.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span></span><br><span class="line"><span class="attr">escape</span>: <span class="regexp">/^\\([`*\[\]()# +\-.!_&gt;])/</span>,</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="comment">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span></span><br><span class="line"><span class="attr">em</span>: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<h4 id="修改-config-yml，加入-mathjax、katex-段"><a href="#修改-config-yml，加入-mathjax、katex-段" class="headerlink" title="修改 _config.yml，加入 mathjax、katex 段"></a>修改 _config.yml，加入 mathjax、katex 段</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mathjax</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="attr">katex:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">allpost:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">copy_tex:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h4 id="最后，每一篇需要用到-mathjax-的post，在-title-段加入mathjax-true"><a href="#最后，每一篇需要用到-mathjax-的post，在-title-段加入mathjax-true" class="headerlink" title="最后，每一篇需要用到 mathjax 的post，在 title 段加入mathjax:true"></a>最后，每一篇需要用到 mathjax 的post，在 title 段加入mathjax:true</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Testing</span> <span class="string">Mathjax</span> <span class="string">with</span> <span class="string">Hexo</span></span><br><span class="line"><span class="attr">category:</span> <span class="string">Uncategorized</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="string">/05/03</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-</article>
-
-    </li>
-  
 </ul>
+
+  <section id="nav-wrapper">
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">next »</a>
+    </nav>
+  </section>
 
 
             <footer>
